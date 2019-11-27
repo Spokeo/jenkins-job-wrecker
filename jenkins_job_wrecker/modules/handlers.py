@@ -19,7 +19,7 @@ class Handlers(jenkins_job_wrecker.modules.base.Base):
                 for setting in settings:
                     key, value = setting
                     if key in yml_parent:
-                        if not value or isinstance(yml_parent[key], bool):
+                        if not value or key == 'concurrent':
                             continue
                         yml_parent[key].append(value[0])
                     else:
